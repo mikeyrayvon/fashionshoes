@@ -1,7 +1,5 @@
-Globie Shopify Starter Pack
+Fashion Shoes
 ---
-
-Starting point for our Shopify themes.
 
 Tech this uses [thnx]:
 

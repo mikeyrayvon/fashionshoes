@@ -3,7 +3,7 @@
     "name": "Front page",
     "settings": [
       {
-        "type": "textarea",
+        "type": "html",
         "id": "keywords",
         "label": "Keywords"
       },

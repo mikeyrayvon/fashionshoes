@@ -68,6 +68,17 @@ $border-radius = 10px
   color: $color-grey-mid
   padding: 0 $margin-tiny
 
+#eightball
+  animation: ball 3s infinite linear
+
+@keyframes ball
+  0%
+    transform: rotate(0deg)
+  50%
+    transform: rotate(180deg)
+  100%
+    transform: rotate(360deg)
+
 .price-bubble
   position: absolute
   bottom: 0

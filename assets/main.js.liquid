@@ -10,8 +10,10 @@ Site = {
       _this.onResize();
     });
 
+    this.Extras.init();
+
     if ($('body').hasClass('template-product')) {
-      _this.Product.init();
+      this.Product.init();
     }
 
   },
@@ -33,8 +35,36 @@ Site = {
     });
   },
 
-
 };
+
+Site.Extras = {
+  init: function() {
+    this.startTime();
+  },
+
+  checkTime: function(i) {
+    return (i < 10) ? "0" + i : i;
+  },
+
+  startTime: function () {
+    const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    const _this = this,
+      today = new Date(),
+      h = this.checkTime(today.getHours()),
+      m = this.checkTime(today.getMinutes()),
+      s = this.checkTime(today.getSeconds());
+
+    console.log(today);
+
+    $('#current-time').html(weekday[today.getDay()] + ' ' + h + ':' + m + ':' + s);
+
+    const t = setTimeout(function () {
+      _this.startTime()
+    }, 500);
+  },
+
+}
 
 Site.Product = {
   init: function() {

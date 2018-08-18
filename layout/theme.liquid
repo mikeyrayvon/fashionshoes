@@ -24,27 +24,71 @@
   {{ '//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js' | script_tag }}
 </head>
 <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}" >
-  <header id="header">
-    <h1 class="u-visuallyhidden">{{ shop.name }}</h1>
-    <div class="container">
-      <nav class="grid-row font-uppercase">
-        <div class="grid-item item-s-4">
-          <a href="/about">About</a>
+  <div id="main-container" class="grid-row justify-between">
+    <header id="header" class="grid-item no-gutter item-s-12 item-m-3 item-l-2">
+      <div class="grid-row">
+        <div id="logo-holder" class="grid-item item-s-10 padding-top-small padding-bottom-small">
+          <a href="/" class="u-block">
+            <img src="{{ 'fashionshoes-graphic.png' | asset_img_url: '113x' }}" />
+            <h1 class="font-size-basic margin-top-small">&#9884;Fashion Shoes</h1>
+          </a>
         </div>
-        <div class="grid-item item-s-4 text-align-center">
-          <a href="/">Shop</a>
+      </div>
+      <nav class="grid-row nav-menu padding-top-small padding-bottom-small">
+        <div class="grid-item item-s-12 margin-bottom-basic">
+          <a href="/cart" class="link-underline">Shopping Cart: {{ cart.item_count }}</a>
         </div>
-        <div class="grid-item item-s-4 text-align-right">
-          <a href="/cart">{% if cart.item_count > 0%}<span>{{ cart.item_count }}</span> {% endif %}Cart</a>
+        <div class="grid-item item-s-12 margin-bottom-basic">
+          <a href="/story" class="link-underline">Story</a>
+        </div>
+        <div class="grid-item item-s-12 margin-bottom-basic">
+          <a href="/devils-knot" class="link-underline">How to tie the Devil's Knot</a>
+        </div>
+        <div class="grid-item item-s-12 margin-bottom-basic">
+          <a href="/policies" class="link-underline">Our policies</a>
         </div>
       </nav>
-    </div>
-  </header>
+      <div id="catalog-controls" class="margin-top-basic">
+        <div id="range-row" class="grid-row justify-between margin-bottom-basic">
+          <div class="grid-item dice font-sans">⚁</div>
+          <div class="grid-item dice font-sans">⚂</div>
+          <div class="grid-item dice font-sans">⚃</div>
+          <div class="grid-item item-s-12">
+            <input id="grid-range" type="range" min="2" max="4" />
+          </div>
+        </div>
+        <fieldset id="toggles">
+          <div class="catalog-toggle">
+            <div class="toggle-input-holder">
+              <input type="checkbox" id="toggle-mens" name="mens" checked />
+              <div class="phantom-check"></div>
+            </div>
+            <label for="toggle-mens">"Mens"</label>
+          </div>
+          <div class="catalog-toggle">
+            <div class="toggle-input-holder">
+              <input type="checkbox" id="toggle-womens" name="womens" checked />
+              <div class="phantom-check"></div>
+            </div>
+            <label for="toggle-womens">"Womens"</label>
+          </div>
+        </fieldset>
+        {% if settings.keywords != blank %}
+        <div id="keywords" class="margin-top-basic">
+          <span>Keywords:</span>
+          <p>{{ settings.keywords }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </header>
 
-  {{ content_for_layout }}
+    <div id="athletic-shoe">&#128095;</div>
 
-  <footer id="footer">
-    <div class="container">
+    <main id="main-content" class="grid-item no-gutter item-s-12 item-m-8 item-l-9">
+      {{ content_for_layout }}
+    </main>
+
+    <footer id="footer" class="grid-item no-gutter item-s-12">
       <div class="grid-row">
         <div class="grid-item item-s-12 text-align-center">
           <h2 class="font-uppercase">Contact</h2>
@@ -62,8 +106,8 @@
         </div>
         {% endif %}
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   {{ 'library.js'  | asset_url | script_tag }}
   {{ 'main.js'  | asset_url | script_tag }}

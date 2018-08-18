@@ -1,0 +1,82 @@
+$border-radius = 10px
+
+#logo-holder
+  background-color: $color-yellow-pale
+  color: $color-black
+  border-radius: $border-radius
+
+.nav-menu
+  background-color: $color-grey-light
+  color: $color-black
+  border-radius: $border-radius
+
+#athletic-shoe
+  position: fixed
+  font-size: 72px
+  right: -30px
+  z-index: 900
+  top: 50vh
+  text-decoration: line-through
+  color: black
+  pointer-events: none
+  filter: saturate(0) contrast(5) brightness(.5)
+
+#products
+  max-width: 1200px
+
+#range-row
+  width: 180px
+  .dice
+    font-size: 36px
+
+#toggles
+  width: 240px
+  padding: 0
+  margin: 0
+  border: 0
+  border-bottom: 1px solid $color-grey-mid
+
+.catalog-toggle
+  border: 1px solid $color-grey-mid
+  border-bottom: 0
+  .toggle-input-holder
+    padding: $margin-tiny
+    position: relative
+    display: inline-block
+  input
+    width: 100%
+    height: 100%
+    opacity: 0
+    position: absolute
+    top: 0
+    left: 0
+    &:checked + div.phantom-check
+      background: $color-purple-bright
+  label
+    padding: $margin-tiny
+    border-left: 1px solid $color-grey-mid
+  .phantom-check
+    background: $color-grey-mid
+    border: 2px solid $color-grey-light
+    width: $margin-tiny
+    height: $margin-tiny
+    border-radius: $margin-tiny
+    display: inline-block
+    pointer-events: none
+
+#keywords
+  color: $color-grey-mid
+  padding: 0 $margin-tiny
+
+.price-bubble
+  position: absolute
+  bottom: 0
+  right: 0
+  padding: $margin-small
+  background-color: $color-grey-dark
+  border-radius: $border-radius 0 0 0
+
+.product-image-holder
+  position: relative
+  img
+    display: block

@@ -3,6 +3,11 @@
     "name": "Front page",
     "settings": [
       {
+        "type": "textarea",
+        "id": "keywords",
+        "label": "Keywords"
+      },
+      {
         "type":      "radio",
         "id":        "radio_option",
         "label":     "Select Option",

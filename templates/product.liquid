@@ -1,13 +1,11 @@
 <section id="product-header">
-  <div class="container">
-    <div class="grid-row">
-      <div class="grid-item item-s-12 item-m-8">
-        <h2 class="u-inline-block">{{ product.title }}</h2>
-        <span>{{ product.price | money_without_trailing_zeros }}</span>
-      </div>
-      <div class="grid-item item-s-12 item-m-4">
-        <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
-      </div>
+  <div class="grid-row">
+    <div class="grid-item item-s-12 item-m-8">
+      <h2 class="u-inline-block">{{ product.title }}</h2>
+      <span>{{ product.price | money_without_trailing_zeros }}</span>
+    </div>
+    <div class="grid-item item-s-12 item-m-4">
+      <img src="{{ product.featured_image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" />
     </div>
   </div>
 </section>
@@ -27,32 +25,30 @@
 {% endif %}
 
 <section id="product-info">
-  <div class="container">
-    <div class="grid-row">
-      <div class="grid-item item-s-12 item-m-6">
-        {{ product.description }}
-      </div>
-      <div class="grid-item item-s-12 item-m-3">
-        <ul>
-        {% for tag in product.tags %}
-          <li class="product-tag">{{ tag }}</li>
-        {% endfor %}
-        </ul>
-      </div>
-      <div class="grid-item item-s-12 item-m-3">
-        <form action="/cart/add" method="post" enctype="multipart/form-data">
-          <select id="product-variant" name="id">
-            {% for variant in product.variants %}
-              {% if variant.available == true %}
-            <option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
-              {% else %}
-            <option disabled="disabled"> {{ variant.title }} - sold out!</option>
-              {% endif %}
-            {% endfor %}
-          </select>
-          <input type="submit" name="add" id="add" value="Add to Cart" class="button">
-        </form>
-      </div>
+  <div class="grid-row">
+    <div class="grid-item item-s-12 item-m-6">
+      {{ product.description }}
+    </div>
+    <div class="grid-item item-s-12 item-m-3">
+      <ul>
+      {% for tag in product.tags %}
+        <li class="product-tag">{{ tag }}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="grid-item item-s-12 item-m-3">
+      <form action="/cart/add" method="post" enctype="multipart/form-data">
+        <select id="product-variant" name="id">
+          {% for variant in product.variants %}
+            {% if variant.available == true %}
+          <option value="{{variant.id}}"> {{ variant.title }} for {{ variant.price | money_with_currency }}</option>
+            {% else %}
+          <option disabled="disabled"> {{ variant.title }} - sold out!</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+        <input type="submit" name="add" id="add" value="Add to Cart" class="button">
+      </form>
     </div>
   </div>
 </section>
